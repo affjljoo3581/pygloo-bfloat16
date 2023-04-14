@@ -1,3 +1,22 @@
+# pygloo-bfloat16
+This repository is a fork of [pygloo](https://github.com/ray-project/pygloo) with bfloat16 support. You can use `allreduce` with bfloat16 dtype as follows: 
+
+```python
+sendbuf = np.random.normal(0, 1, (1024, 1024))
+sendbuf = np.array(jnp.array(sendbuf, dtype=jnp.bfloat16)))
+recvbuf = np.zeros_like(sendbuf)
+
+pygloo.allreduce(
+    context,
+    sendbuf.ctypes.data,
+    recvbuf.ctypes.data,
+    sendbuf.size,
+    pygloo.glooDataType_t.glooBfloat16,
+    pygloo.ReduceOp.SUM,
+    pygloo.allreduceAlgorithm.RING,
+)
+```
+
 # pygloo
 
 Pygloo provides Python bindings for [gloo](https://github.com/facebookincubator/gloo).
