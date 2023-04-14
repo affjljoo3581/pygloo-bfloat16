@@ -7,6 +7,7 @@
 #include <gloo/context.h>
 #include <gloo/math.h>
 #include <gloo/types.h>
+#include <bfloat16.h>
 
 namespace pygloo {
 
@@ -61,6 +62,7 @@ enum class glooDataType_t : std::uint8_t {
   glooFloat16,
   glooFloat32,
   glooFloat64,
+  glooBfloat16, // custom bfloat16 type
 };
 
 void allreduce_wrapper(const std::shared_ptr<gloo::Context> &context,

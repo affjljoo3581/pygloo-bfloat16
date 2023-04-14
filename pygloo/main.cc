@@ -53,6 +53,7 @@ PYBIND11_MODULE(pygloo, m) {
       .value("glooFloat16", pygloo::glooDataType_t::glooFloat16)
       .value("glooFloat32", pygloo::glooDataType_t::glooFloat32)
       .value("glooFloat64", pygloo::glooDataType_t::glooFloat64)
+      .value("glooBfloat16", pygloo::glooDataType_t::glooBfloat16)
       .export_values();
 
   m.def("allreduce", &pygloo::allreduce_wrapper,

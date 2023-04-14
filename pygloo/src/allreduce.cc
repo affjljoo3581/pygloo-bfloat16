@@ -65,6 +65,10 @@ void allreduce_wrapper(const std::shared_ptr<gloo::Context> &context,
     allreduce<double_t>(context, sendbuf, recvbuf, size, reduceop, algorithm,
                         tag);
     break;
+  case glooDataType_t::glooBfloat16:
+    allreduce<gloo::bfloat16>(context, sendbuf, recvbuf, size, reduceop,
+                              algorithm, tag);
+    break;
   default:
     throw std::runtime_error("Unhandled dataType");
   }
