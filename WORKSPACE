@@ -42,18 +42,18 @@ http_archive(
 
 http_archive(
    name = "pybind11_bazel",
-   strip_prefix = "pybind11_bazel-f4f1bd4fa4b368b79dd6f003f8ef8c5a91fad36b",
-   urls = ["https://github.com/Ezra-H/pybind11_bazel/archive/f4f1bd4fa4b368b79dd6f003f8ef8c5a91fad36b.zip"],
-   sha256 = "6ea811e7a7348f7c9d5b59887aa0c65e42222e199049a1ee55db147d2e9ca4a7",
+   strip_prefix = "pybind11_bazel-fd7d88857cca3d7435b06f3ac6abab77cd9983b2",
+   urls = ["https://github.com/Ezra-H/pybind11_bazel/archive/fd7d88857cca3d7435b06f3ac6abab77cd9983b2.zip"],
+   # sha256 = "6ea811e7a7348f7c9d5b59887aa0c65e42222e199049a1ee55db147d2e9ca4a7",
 )
 
 # We still require the pybind library.
 http_archive(
    name = "pybind11",
    build_file = "@pybind11_bazel//:pybind11.BUILD",
-   strip_prefix = "pybind11-2.6.1",
-   urls = ["https://github.com/pybind/pybind11/archive/v2.6.1.tar.gz"],
-   sha256 = "cdbe326d357f18b83d10322ba202d69f11b2f49e2d87ade0dc2be0c5c34f8e2a",
+   strip_prefix = "pybind11-2.11.1",
+   urls = ["https://github.com/pybind/pybind11/archive/v2.11.1.tar.gz"],
+   # sha256 = "cdbe326d357f18b83d10322ba202d69f11b2f49e2d87ade0dc2be0c5c34f8e2a",
 )
 
 http_archive(
@@ -81,7 +81,7 @@ http_archive(
    sha256 = "a146136bb6efdac0e3ede952d09aec44b771a87ebc713bd815c3a90a7428c908",
 )
 
-load("@pybind11_bazel//:python_configure.bzl", "python_configure_pybind")
-python_configure_pybind(name = "local_config_python")
+load("@pybind11_bazel//:python_configure.bzl", "python_configure")
+python_configure(name = "local_config_python")
 
 
